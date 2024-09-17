@@ -1,0 +1,63 @@
+/* Estilos básicos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: #ffffff; /* Fondo blanco para la tabla */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+thead {
+    background-color: #c31f1f; /* Color de fondo del encabezado */
+    color: #ffffff; /* Color del texto en el encabezado */
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f4f4; /* Fondo alternado para las filas */
+}
+
+tbody tr:hover {
+    background-color: #eaeaea; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo general del contenedor */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333; /* Color del texto del título */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo del botón */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #c31f1f; /* Color del botón */
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a71b1b; /* Color del botón al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil al pasar el ratón */
+}

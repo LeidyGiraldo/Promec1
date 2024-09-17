@@ -1,0 +1,751 @@
+/* Importando fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 3.5rem; /* Ajuste para el header fijo */
+}
+
+/* Estilo del Header */
+.header {
+    background-color: #c31f1f;
+    color: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.header.scrolled {
+    background-color: #0f0f0f;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navL {
+    display: flex;
+    align-items: center;
+}
+
+.navL-img {
+    width: 150px;
+    height: auto;
+}
+
+.navM {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navLink {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navLink:hover {
+    color: #e67e22;
+}
+
+.navLink-1 {
+    background-color: #e67e22;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.navLink-1:hover {
+    background-color: #d35400;
+}
+
+/* Estilos para el toggle del menú en móviles */
+.navToggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .navList {
+        position: fixed;
+        top: -100%;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: top 0.3s;
+    }
+
+    .navList.active {
+        top: 0;
+    }
+
+    .navToggle {
+        display: block;
+    }
+
+    .navClose {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    .navLink {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footerL h2 {
+    color: #e67e22;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footersocial {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footersocial-link {
+    color: #ffffff;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.footersocial-link:hover {
+    color: #e67e22;
+}
+
+/* Otros estilos para botones, secciones, etc. */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.button {
+    background-color: #c31f1f;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #c31f1f;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+-----------------------------------------
+/* Estilos generales del main */
+.main {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de la sección home */
+.home {
+    padding: 100px 0;
+    background: #ffffff; /* Fondo blanco para un diseño limpio y moderno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homecont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.homedata {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.homet {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #c31f1f; /* Azul oscuro para un contraste profesional */
+    margin-bottom: 15px;
+}
+
+.homedes {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: #c31f1f; /* Azul vibrante para el botón */
+    color: #fff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+.button:hover {
+    background-color: #c31f1f; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-4px); /* Efecto de elevación más marcado */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más prominente al pasar el ratón */
+}
+
+.homeg {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.homeimg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bordes redondeados más marcados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+}
+
+--------------------------------------------------------
+/* Container for category section */
+.section.category {
+    padding: 50px 0;
+    background-color: #f9f9f9; /* Fondo claro para resaltar las tarjetas */
+}
+
+.catcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.catdata {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.catdata:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.catimg {
+    width: 100%;
+    height: 180px; /* Ajusta la altura de la imagen */
+    object-fit: cover; /* Mantiene la proporción de la imagen sin distorsionarla */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.cattitle {
+    font-size: 1.4em;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.catdesc {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}
+
+.stitle {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .catcontainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .catdata {
+        width: 90%;
+    }
+}
+-----------------------------------------------------------------------
+/* General styling for the section */
+.section {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Container styling for better alignment */
+.abcontainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Image styling */
+.aboutimg {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Data section styling */
+.abdata {
+    max-width: 600px;
+    text-align: center; /* Center text and buttons */
+}
+
+/* Title styling */
+.stitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Subtitle styling */
+.abti {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Description styling */
+.abdes {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #c31f1f;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a71b1b; /* Adjust hover color if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .abcontainer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .aboutimg {
+        margin-bottom: 20px;
+    }
+}
+-------------------------------------------------------------
+/* Estilos generales para la sección de productos */
+.section.product {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.stitle {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.pdcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.pdcontent {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: calc(33.333% - 20px); /* Tres productos por fila con espacio entre ellos */
+    max-width: 300px;
+}
+
+.pdcontent:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.productimg {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+.pdtitle {
+    font-size: 1.5rem;
+    margin: 20px;
+    color: #333;
+}
+
+.pdsub {
+    font-size: 1rem;
+    color: #666;
+    margin: 0 20px 20px;
+}
+
+.button.pdbut {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    background-color: #e94e77;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button.pdbut:hover {
+    background-color: #d43f6c;
+}
+
+.producticon {
+    font-size: 1.2rem;
+}
+-----------------------------------------------------------------------
+/* Estilo general para la sección de descuentos */
+.section.discount {
+    background-color: #f9f9f9; /* Fondo de la sección */
+    padding: 50px 0;
+}
+
+/* Estilo para el contenedor de descuento */
+.dscont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Estilo para los datos del descuento */
+.disdata {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Ajusta el espacio entre el texto y el botón */
+}
+
+/* Estilo para el título del descuento */
+.distitle {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+/* Estilo para la imagen del descuento */
+.disimg {
+    width: 300px; /* Ajusta el tamaño según lo necesario */
+    height: 200px; /* Ajusta la altura para mantener la proporción */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto 3D */
+    margin-top: 40px; /* Aumenta la separación entre el texto y la imagen */
+}
+
+/* Estilo para el botón */
+.button {
+    background-color: #e74c3c; /* Color del botón */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.button:hover {
+    background-color: #c0392b; /* Color del botón al pasar el ratón */
+}
+-------------------------------------------------------------------
+.comentarios {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+}
+
+.comentarios span {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+}
+
+.comentarios h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.comentarios_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comentarios_content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comentarios_1 p {
+    margin: 0.5rem 0;
+}
+
+.comentarios_action {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.btn-comentario {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-comentario:hover {
+    background-color: #0056b3;
+}
+
+.comentario-msg {
+    font-size: 1rem;
+    color: #777;
+}
+
+.btn-login {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 10px;
+    background-color: #c31f1f; /* Color de fondo azul */
+    color: #fff; /* Color del texto blanco */
+    text-decoration: none;
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.btn-login:hover {
+    background-color: #c31f1f; /* Color de fondo más oscuro en hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil al pasar el ratón */
+}
+
+.btn-login:active {
+    background-color: #c31f1f; /* Color aún más oscuro cuando se hace clic */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reducir la sombra al hacer clic */
+}
+
+-------------------------------------------------------------
+/* Estilo general para el footer */
+.footer {
+    background-color: #333; /* Color de fondo del footer */
+    color: #fff; /* Color del texto */
+    padding: 20px 0; /* Espaciado superior e inferior */
+}
+
+.ftcontainer {
+    display: flex; /* Utiliza Flexbox para la alineación horizontal */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor en la página */
+}
+
+.ftcontent {
+    flex: 1; /* Hace que todos los elementos hijos ocupen el mismo espacio */
+    margin: 0 15px; /* Espaciado horizontal entre las columnas */
+}
+
+/* Estilo para el logo y la descripción */
+.footerL h2 {
+    font-size: 24px; /* Tamaño del texto del logo */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.footerdescription {
+    font-size: 14px; /* Tamaño del texto de la descripción */
+    line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+}
+
+/* Estilo para los enlaces de redes sociales */
+.footersocial {
+    display: flex; /* Utiliza Flexbox para alinear los iconos horizontalmente */
+    gap: 10px; /* Espaciado entre los iconos */
+    margin-top: 10px; /* Espaciado superior */
+}
+
+.footersocial-link {
+    color: #fff; /* Color de los iconos */
+    font-size: 24px; /* Tamaño de los iconos */
+    transition: color 0.3s ease; /* Transición para el cambio de color */
+}
+
+.footersocial-link:hover {
+    color: #ddd; /* Color de los iconos al pasar el ratón */
+}
+
+/* Estilo para la sección de contacto */
+#contacto {
+    font-size: 14px; /* Tamaño del texto */
+}
+
+#contacto h2 {
+    font-size: 18px; /* Tamaño del texto del título */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo para el mapa */
+iframe {
+    border-radius: 5px; /* Bordes redondeados para el iframe */
+}
+
+/* Medios para dispositivos móviles */
+@media (max-width: 768px) {
+    .ftcontainer {
+        flex-direction: column; /* Cambia la dirección de los elementos en pantallas pequeñas */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    .ftcontent {
+        margin-bottom: 20px; /* Espaciado inferior entre las secciones */
+    }
+}
