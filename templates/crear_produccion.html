@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/crear_produccion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <style>
+        /* Eliminar las flechitas del campo de número */
+        input[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+            appearance: textfield; /* Chrome, Opera, Safari */
+        }
+
+        /* Eliminar el borde del campo de número para que se vea como texto */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById("fecha_inicio").setAttribute('min', today);
+            document.getElementById("fecha_entrega").setAttribute('min', today);
+
+            function calculateDuration() {
+                var startDate = document.getElementById("fecha_inicio").value;
+                var endDate = document.getElementById("fecha_entrega").value;
+                
+                if (startDate && endDate) {
+                    var start = new Date(startDate);
+                    var end = new Date(endDate);
+                    var timeDiff = end - start; // Diferencia en milisegundos
+                    var daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convertir milisegundos a días
+                    document.getElementById("duracion").value = daysDiff; // Solo el número
+                }
+            }
+
+            document.getElementById("fecha_inicio").addEventListener('change', calculateDuration);
+            document.getElementById("fecha_entrega").addEventListener('change', calculateDuration);
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+
+        <form class="form" method="post">
+            {% csrf_token %}
+            <div class="inputs">
+                <br><br> <br><br>
+
+                <input type="number" class="box" placeholder="Codigo" name="codigo" id="codigo" required>
+                <input class="box" type="text" name="nombre" id="nombre" placeholder="Nombre del producto" required>
+                <label>Cantidad</label>
+                <input class="box" type="number" name="cantidad" id="cantidad" placeholder="Cantidad" required>
+                <label>Fecha de inicio</label><br>
+                <input type="date" class="box" name="fecha_inicio" id="fecha_inicio" required>
+                <label>Fecha de entrega</label><br>
+                <input type="date" class="box" name="fecha_entrega" id="fecha_entrega" required>
+                <label>Tiempo aproximado (días)</label><br>
+                <input class="box" type="number" name="duracion" id="duracion" min="1" max="30" readonly>
+                <label>Categoria</label><br>
+                <select name="categoria" class="box" required> 
+                    {% for categoria in categoria %}
+                        <option value="{{ categoria.id }}">
+                            {{ categoria.nombre_categoria }}
+                        </option>
+                    {% endfor %}
+                </select>
+                <input type="submit" class="submit" value="Crear"><br>
+                <a class="back" href="{% url 'produccion' %}">Cancelar</a>
+            </div>
+        </form>
+
+        <div class="info">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br> <br><br><br><br>
+
+            <p class="txt-1"></p>
+            <h2>Crear producción</h2>
+            <hr>
+        </div>
+    </div>
+
+</body>
+</html>

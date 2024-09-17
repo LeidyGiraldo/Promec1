@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Clientesz</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/clientes.css' %}">
+    <style>
+        /* Estilo para el botón de regresar */
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            font-size: 16px;
+            color: #fff;
+            background-color: #c31f1f;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #c31f1f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    
+        <h1>Lista de Clientes</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Fecha de Registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Juan Pérez</td>
+                    <td>juan.perez@example.com</td>
+                    <td>2024-01-15</td>
+                </tr>
+                <tr>
+                    <td>Ana Gómez</td>
+                    <td>ana.gomez@example.com</td>
+                    <td>2024-02-20</td>
+                </tr>
+                <tr>
+                    <td>Carlos Martínez</td>
+                    <td>carlos.martinez@example.com</td>
+                    <td>2024-03-25</td>
+                </tr>
+                <tr>
+                    <td>María López</td>
+                    <td>maria.lopez@example.com</td>
+                    <td>2024-04-30</td>
+                </tr>
+                <tr>
+                    <td>Luis Fernández</td>
+                    <td>luis.fernandez@example.com</td>
+                    <td>2024-05-05</td>
+                </tr>
+                <tr>
+                    <td>Laura Rodríguez</td>
+                    <td>laura.rodriguez@example.com</td>
+                    <td>2024-06-10</td>
+                </tr>
+                <tr>
+                    <td>Pedro García</td>
+                    <td>pedro.garcia@example.com</td>
+                    <td>2024-07-15</td>
+                </tr>
+                <tr>
+                    <td>Elena Martínez</td>
+                    <td>elena.martinez@example.com</td>
+                    <td>2024-08-20</td>
+                </tr>
+                <tr>
+                    <td>Francisco Torres</td>
+                    <td>francisco.torres@example.com</td>
+                    <td>2024-09-25</td>
+                </tr>
+                <tr>
+                    <td>Isabel Jiménez</td>
+                    <td>isabel.jimenez@example.com</td>
+                    <td>2024-10-30</td>
+                </tr>
+                <tr>
+                    <td>Ricardo Morales</td>
+                    <td>ricardo.morales@example.com</td>
+                    <td>2024-11-05</td>
+                </tr>
+                <tr>
+                    <td>Sofía Sánchez</td>
+                    <td>sofia.sanchez@example.com</td>
+                    <td>2024-11-10</td>
+                </tr>
+                <tr>
+                    <td>Javier Ruiz</td>
+                    <td>javier.ruiz@example.com</td>
+                    <td>2024-11-24</td>
+                </tr>
+                <tr>
+                    <td>Carmen Castro</td>
+                    <td>carmen.castro@example.com</td>
+                    <td>2024-11-27</td>
+                </tr>
+                <tr>
+                    <td>Antonio Ramírez</td>
+                    <td>antonio.ramirez@example.com</td>
+                    <td>2024-11-30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'produccion' %}" class="back-button">Regresar</a>
+        
+</body>
+</html>

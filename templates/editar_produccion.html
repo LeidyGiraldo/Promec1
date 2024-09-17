@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/editar_produccion.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <style>
+        /* Eliminar las flechitas del campo de número */
+        input[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+            appearance: textfield; /* Chrome, Opera, Safari */
+        }
+
+        /* Eliminar el borde del campo de número para que se vea como texto */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener la fecha actual en formato YYYY-MM-DD
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0'); // Los meses son 0-indexados
+            var day = String(today.getDate()).padStart(2, '0');
+            var formattedDate = year + '-' + month + '-' + day;
+
+            // Establecer la fecha mínima en el input de fecha de entrega
+            var fechaEntregaInput = document.getElementById("fecha_entrega");
+            if (fechaEntregaInput) {
+                fechaEntregaInput.setAttribute('min', formattedDate);
+            }
+
+            // Función para calcular la duración aproximada
+            function calculateDuration() {
+                var fechaInicio = document.getElementById("fecha_inicio").value;
+                var fechaEntrega = document.getElementById("fecha_entrega").value;
+                
+                if (fechaInicio && fechaEntrega) {
+                    var startDate = new Date(fechaInicio);
+                    var endDate = new Date(fechaEntrega);
+                    var timeDiff = endDate - startDate; // Diferencia en milisegundos
+                    var daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convertir milisegundos a días
+                    document.getElementById("duracion").value = daysDiff; // Solo el número de días
+                }
+            }
+
+            // Asignar la función a los eventos de cambio de los campos de fecha
+            document.getElementById("fecha_inicio").addEventListener('change', calculateDuration);
+            document.getElementById("fecha_entrega").addEventListener('change', calculateDuration);
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="info">
+            <br>
+            <br>
+            <br><br><br><br><br><br><br><br>
+            
+            <p class="txt-1"></p>
+            <h2>Editar producto</h2>
+            <hr>
+    
+        </div>
+
+        <form class="form" method="post">
+            {% csrf_token %}
+            
+            <div class="inputs">
+                <br><br><br><br>
+                <label class="box-1">Editando producto {{ product.id }}</label><br><br>
+                <label>Nombre del producto</label><br>
+                <input class="box" type="text" name="nombre" id="nombre" placeholder="Nombre del producto" value="{{ product.nombre_producto }}">
+                <label>Cantidad</label><br>
+                <input class="box" type="number" name="cantidad" id="cantidad" min="1" max="1000" placeholder="Cantidad" value="{{ product.cantidad }}">
+                <label>Fecha de inicio</label><br>
+                <input type="date" class="box" name="fecha_inicio" id="fecha_inicio" placeholder="Fecha de inicio" value="{{ product.fecha_inicio }}">
+                <label>Fecha de entrega</label><br>
+                <input type="date" class="box" name="fecha_entrega" id="fecha_entrega" placeholder="Fecha de entrega" value="{{ product.fecha_entrega }}">
+                <label>Tiempo aproximado (días)</label><br>
+                <input class="box" type="number" name="duracion" id="duracion" min="1" max="30" placeholder="Duración estimada" readonly>
+                <input type="submit" class="submit" value="Guardar">
+                <a class="back" href="{% url 'produccion' %}">Regresar</a>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>

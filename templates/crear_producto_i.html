@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener la fecha actual en formato YYYY-MM-DD
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0'); // Los meses son 0-indexados
+            var day = String(today.getDate()).padStart(2, '0');
+            var formattedDate = year + '-' + month + '-' + day;
+
+            // Establecer la fecha mínima en el input de fecha de ingreso
+            var fechaInput = document.getElementById("fecha");
+            if (fechaInput) {
+                fechaInput.setAttribute('min', formattedDate);
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="info">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p class="txt-1"></p>
+            <h2>Agregar producto</h2>
+            <hr>
+
+        </div>
+
+        <form class="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inputs">
+                <input type="number" class="box" placeholder="Codigo" name="codigo" id="codigo" required>
+                <input class="box" type="text" name="nombre" id="nombre" placeholder="Nombre del producto" required>
+                <label>Imagen del producto</label>
+                <input class="box" type="file" name="imagen" id="imagen" value="subir" accept="image/*" required >
+                <label>Fecha de ingreso</label><br>
+                <input type="date" class="box" name="fecha" id="fecha" required>
+                <label>Tipo de producto</label><br>
+                <select name="tipo" class="box" required>
+                    {% for tipo in tipo %}
+                        <option value="{{ tipo.id }}" > {{ tipo.nombre_tipo }} </option> 
+                    {% endfor %}
+                </select>
+                <input class="box" type="number" name="existencias" id="existencias" placeholder="Existencias iniciales" required >
+                <input class="box" type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required >
+                <label>Ubicacion</label><br>
+                <select name="ubicacion" class="box" required>
+                    {% for ubicacion in ubicacion %}
+                        <option value="{{ ubicacion.id }}" >{{ ubicacion.nombre_ubicacion }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" class="submit" value="Crear" ><br>
+                <a class="back" href="{% url 'inventario' %}" >Cancelar</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

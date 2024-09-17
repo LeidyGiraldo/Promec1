@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        nav {
+            width: 250px;
+            background: #333;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        nav ul li a:hover {
+            background: #444;
+        }
+
+        nav ul li a.logo img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul li a.logo span {
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        nav ul li a i {
+            margin-right: 10px;
+        }
+
+        nav ul li a.logout {
+            margin-top: auto;
+            background: red;
+            text-align: center;
+        }
+
+        .main {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .main-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .main-top h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .content {
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 1000px; /* Max width for larger screens */
+            margin: 0 auto; /* Center the content */
+        }
+
+        .pedidos-list h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px; /* Add margin to separate from content */
+        }
+
+        .pedidos-list p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Pedidos</h1>
+      </div>
+      
+      <section class="content">
+        <div class="pedidos-list">
+          <h2>Aquí se mostrarán los pedidos</h2>
+          <p>Contenido de pedidos, como lista o descripción.</p>
+
+          <!-- Tabla de pedidos -->
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>2024-09-15</td>
+                <td>Juan Pérez</td>
+                <td>Producto A</td>
+                <td>10</td>
+                <td>Enviado</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>2024-09-16</td>
+                <td>Ana Gómez</td>
+                <td>Producto B</td>
+                <td>5</td>
+                <td>Pendiente</td>
+              </tr>
+              <!-- Más filas según los datos disponibles -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </div>
+</body>
+</html>

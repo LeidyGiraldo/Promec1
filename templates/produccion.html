@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Produccion</title>
+  <link rel="stylesheet" href="{% static 'css/produccion.css' %}" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+
+<body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#" class="logo">
+            <img src="{% static 'imgs/promec.png' %}" alt="logo">
+            <span class="nav-item">Admin</span>
+          </a></li>
+      
+       
+          <li>
+            <a href="{% url 'clientes' %}">
+              <i class="fas fa-users"></i>
+              <span class="nav-item">Clientes</span>
+            </a>
+          </li>
+      
+        
+          <li>
+            <a href="{% url 'calendario' %}">
+                <i class="fas fa-calendar-alt"></i> <!-- Ícono de calendario -->
+                <span class="nav-item">Calendario</span>
+            </a>
+        </li>
+        
+        <li>
+          <a href="{% url 'mantenimiento' %}">
+            <i class="fas fa-tools"></i> <!-- Ícono de herramientas -->
+            <span class="nav-item">Mantenimiento</span>
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="{% url 'notifications' %}">
+            <i class="fas fa-bell"></i> <!-- Cambia la clase del ícono aquí -->
+            <span class="nav-item">Notificaciones</span> 
+          </a>
+        </li>
+        
+      
+
+        <li>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <a href="{% url 'modulacion' %}" class="logout">
+            <i class="fas fa-arrow-left"></i>
+            <span class="nav-item">Regresar</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+
+
+      <div class="main-top">
+        <h1>PRODUCCIÓN</h1>
+        <div class="container">
+          <input type="text" placeholder="Buscar...">
+          <div class="buscar"><i class='bx bx-search' ></i></div>
+        </div>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <div class="adicionar">
+            <h1>Productos</h1>
+            <a class="add" href="{% url 'crear_produccion' %}"><i class='bx bx-plus'></i></a>
+            <div>
+              <a class="add excel" href="{% url 'reporte_produccion' %}"><i class="boton-1 far fa-file-excel"></i></a>
+            </div>
+          </div>
+
+
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <td>Codigo</td>
+                <td>Nombre</td>
+                <td>Cantidad</td>
+                <td>Fecha inicio</td>
+                <td>Fecha entrega </td>
+                <td>Tiempo aproximado </td>
+                <td>Categoria </td>
+                <th>     </th>
+              </tr>
+            </thead>
+          
+            <tbody>
+              {% for produccion in produccion %}
+              <tr>
+                <td>{{ produccion.id }}</td>
+                <td>{{ produccion.nombre_producto }}</td>
+                <td>{{ produccion.cantidad }}</td>
+                <td>{{ produccion.fecha_inicio }}</td>
+                <td>{{ produccion.fecha_entrega }}</td>
+                <td>{{ produccion.duracion_estimada }}</td>
+                <td>{{ produccion.categoria.nombre_categoria }}</td>
+                <td class="options">
+                <a class="add" href="{% url 'editar_produccion' produccion.id %}"><button><i class='bx bx-edit-alt' ></i></button></a> 
+                <a class="add" href="{% url 'eliminar_produccion' produccion.id %}"><button><i class='bx bx-trash' ></i></button></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="paginacion">
+            <a href=""><<</a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+            <a href="">>></a>
+          </div>  
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>

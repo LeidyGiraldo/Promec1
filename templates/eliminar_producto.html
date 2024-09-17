@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/eliminar_producto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+    <div class="container">
+
+        <form class="form" method="post">
+            {% csrf_token %}
+            
+            <div class="inputs">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <label class="box-1">Eliminar el producto {{ producto.nombre_producto }} ?</label><br><br>
+                <input type="submit" class="submit" value="Eliminar" >
+                <a class="back" href="{% url 'inventario' %}">Regresar</a>
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+</html>

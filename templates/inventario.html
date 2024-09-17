@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inventario</title>
+  <link rel="stylesheet" href="{% static 'css/inventario.css' %}" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="{% static 'imgs/promec.png' %}" alt="logo">
+          <span class="nav-item">Admin</span>
+        </a></li>
+        <li><a href="{% url 'pedidos' %}">
+          <i class="fas fa-box-open"></i>
+          <span class="nav-item">Pedidos</span>
+        </a></li>
+
+        
+        <li><a href="{% url 'productos_list' %}">
+          <i class="fas fa-tags"></i>
+          <span class="nav-item">Productos</span>
+        </a></li>
+       
+        <li><a href="{% url 'Categorias' %}">
+          <i class="fas fa-folder"></i>
+          <span class="nav-item">Categorias </span>
+        </a></li>
+        <li>
+          <a href="#">
+            <i class="fas fa-envelope"></i> <!-- Cambia la clase del ícono aquí -->
+            <span class="nav-item">Notificaciones</span> 
+          </a>
+        </li>
+        
+
+        <li>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <a href="{% url 'modulacion' %}" class="logout">
+            <i class="fas fa-arrow-left"></i>
+            <span class="nav-item">Regresar</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+
+
+      <div class="main-top">
+        <h1>INVENTARIO</h1>
+        <div class="container">
+          <input type="text" placeholder="Buscar...">
+          <div class="buscar"><i class='bx bx-search' ></i></div>
+        </div>
+      </div>
+      
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <div class="adicionar">
+            <h1>Productos</h1>
+            <a href="{% url 'crear_product_inv' %}"><i class='bx bx-plus'></i></a>
+            <div>
+              <a class="excel" href="{% url 'reporte_inventario' %}"><i class="boton-1 far fa-file-excel"></i></a>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <td>Codigo</td>
+                             <td>Nombre producto</td>
+                             <td>Fecha ingreso</td>
+                             <td>Tipo producto</td>
+                             <td>Existencias iniciales</td>
+                             <td>Descripción</td>
+                             <td>Ubicación</td>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for producto in producto %}
+              <tr>
+                <td>{{ producto.id }}</td>
+                            <td>{{ producto.nombre_producto }}</td>
+                            <td>{{ producto.fecha_ingreso }}</td>
+                            <td>{{ producto.tipo.nombre_tipo }}</td>
+                            <td>{{ producto.existencias }}</td>
+                            <td>{{ producto.descripcion }}</td>
+                            <td>{{ producto.ubicacion.nombre_ubicacion }}</td>
+                <td class="options">
+                <a href="{% url 'editar_producto' producto.id %}"><button><i class='bx bx-edit-alt' ></i></button></a> 
+                <a href="{% url 'eliminar_producto' producto.id %}"><button><i class='bx bx-trash' ></i></button></a>
+                </td> 
+              </tr>            
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="paginacion">
+            <a href=""><<</a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+            <a href="">>></a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>

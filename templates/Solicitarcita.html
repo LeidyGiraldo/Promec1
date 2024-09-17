@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cita</title>
+    <link rel="stylesheet" href="{% static 'css/Solicitarcita.css' %}">
+    <style>
+        /* Agrega aquí tus estilos personalizados */
+    </style>
+</head>
+<body>
+    <header>
+        <p></p>
+    </header>
+    <div class="container">
+        <h1>Solicitar Cita</h1>
+        <form action="" method="POST" onsubmit="return validarFormulario()">
+            {% csrf_token %}
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <span id="nombre-validation"></span>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+            <span id="correo-validation"></span>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="number" id="telefono" name="telefono" required>
+            <span id="telefono-validation"></span>
+
+            <label for="fecha">Fecha de la Cita:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="hora">Hora de la Cita:</label>
+            <input type="time" id="hora" name="hora" required>
+            <span id="hora-validation"></span>
+
+            <label for="servicio">Servicio:</label>
+            <select id="servicio" name="servicio">
+                <option value="1">Corte Metal</option>
+            </select>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <script>
+        // Establecer la fecha mínima para el campo de fecha
+        document.addEventListener("DOMContentLoaded", function () {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0'); // Los meses son 0-indexados
+            var day = String(today.getDate()).padStart(2, '0');
+            var formattedDate = year + '-' + month + '-' + day;
+
+            var fechaInput = document.getElementById("fecha");
+            if (fechaInput) {
+                fechaInput.setAttribute('min', formattedDate);
+            }
+        });
+
+        function validarFormulario() {
+            var nombre = document.getElementById('nombre').value;
+            var correo = document.getElementById('correo').value;
+            var telefono = document.getElementById('telefono').value;
+            var hora = document.getElementById('hora').value;
+
+            // Expresión regular para validar el formato del correo electrónico
+            var regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+            // Expresión regular para validar el número de teléfono (solo dígitos)
+            var regexTelefono = /^\d+$/;
+
+            var nombreValidation = document.getElementById('nombre-validation');
+            var correoValidation = document.getElementById('correo-validation');
+            var telefonoValidation = document.getElementById('telefono-validation');
+            var horaValidation = document.getElementById('hora-validation');
+
+            if (nombre === '' || correo === '' || telefono === '') {
+                alert('Por favor, complete todos los campos.');
+                return false;
+            }
+
+            if (!regexCorreo.test(correo)) {
+                correoValidation.innerHTML = 'X';
+                correoValidation.style.color = 'red';
+                return false;
+            } else {
+                correoValidation.innerHTML = '✔';
+                correoValidation.style.color = 'green';
+            }
+
+            if (!regexTelefono.test(telefono)) {
+                telefonoValidation.innerHTML = 'X';
+                telefonoValidation.style.color = 'red';
+                return false;
+            } else {
+                telefonoValidation.innerHTML = '✔';
+                telefonoValidation.style.color = 'green';
+            }
+
+            // Validar la hora
+            if (hora) {
+                var horaSeleccionada = new Date('1970-01-01T' + hora + 'Z');
+                var horaInicio = new Date('1970-01-01T01:00:00Z');
+                var horaFin = new Date('1970-01-01T06:00:00Z');
+
+                if (horaSeleccionada >= horaInicio && horaSeleccionada <= horaFin) {
+                    horaValidation.innerHTML = 'X';
+                    horaValidation.style.color = 'red';
+                    alert('La hora seleccionada no está disponible. Elige una hora fuera del rango de 01:00 a 06:00.');
+                    return false;
+                } else {
+                    horaValidation.innerHTML = '✔';
+                    horaValidation.style.color = 'green';
+                }
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

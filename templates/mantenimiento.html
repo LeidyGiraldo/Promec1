@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Estilos básicos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            background-color: #c31f1f;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        /* Estilos para el contenido principal */
+        main {
+            padding: 20px;
+        }
+
+        .mantenimiento-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mantenimiento-item {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mantenimiento-item h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .mantenimiento-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #c31f1f;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mantenimiento</h1>
+    </header>
+    <main>
+        <section class="mantenimiento-list">
+            {% for mantenimiento in mantenimientos %}
+                <article class="mantenimiento-item">
+                    <h2>{{ mantenimiento.nombre }}</h2>
+                    <p>{{ mantenimiento.descripcion }}</p>
+                    <p><strong>Fecha:</strong> {{ mantenimiento.fecha }}</p>
+                </article>
+            {% empty %}
+                <p>No hay registros de mantenimiento disponibles.</p>
+            {% endfor %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Promec jr s.a.s</p>
+    </footer>
+</body>
+</html>

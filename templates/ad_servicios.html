@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulación</title>
+    <link rel="stylesheet" href="{% static 'css/ad_servicios.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        
+
+        .services-container {
+            display: flex;
+            justify-content: center; /* Centra el contenedor de servicios horizontalmente */
+            align-items: center; /* Centra el contenedor de servicios verticalmente */
+            min-height: 80vh; /* Asegura que el contenedor ocupe al menos el 80% de la altura de la ventana */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+         
+.service h2 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: #000000;
+}
+
+        .services {
+            display: flex;
+            justify-content: center; /* Centra los módulos horizontalmente dentro del contenedor */
+            gap: 20px; /* Espacio entre los módulos */
+            flex-wrap: wrap; /* Permite que los módulos se envuelvan en múltiples líneas si es necesario */
+        }
+
+        .service {
+            text-align: center;
+            max-width: 300px; /* Establece un ancho máximo para las tarjetas de servicio */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Añade sombra para mejor visibilidad */
+            border-radius: 8px; /* Bordes redondeados */
+            overflow: hidden; /* Asegura que los bordes redondeados se mantengan dentro del contenedor */
+        }
+
+        .service img {
+            max-width: 100%; /* Asegura que las imágenes no se salgan del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-bottom: 1px solid #ddd; /* Añade una línea debajo de la imagen */
+        }
+
+        .service a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #c31f1f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 10px 0; /* Espaciado vertical alrededor del botón */
+        }
+
+        .service a.button:hover {
+            background-color: #c31f1f;
+        }
+
+        /* Estilo para el botón de regresar */
+        .bottom-button {
+            display: inline-block;
+            background-color: #c31f1f; /* Color rojo */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            position: fixed; /* Fijo en la parte inferior izquierda */
+            bottom: 20px; /* Alineado en la parte inferior */
+            left: 20px; /* Alineado a la izquierda */
+        }
+
+        .bottom-button i {
+            margin-right: 5px;
+        }
+
+        .bottom-button:hover {
+            background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Modulación</h1>
+    </header>
+    
+    <!-- Contenedor que centra los módulos en la mitad de la página -->
+    <div class="services-container">
+        <section class="services">
+            <div class="service">
+                <img src="{% static 'imgs/produccion.jpg' %}" alt="produccion">
+                <h2>Producción</h2>
+                <a href="{% url 'produccion' %}" class="button">Ver Más</a>
+            </div>
+            <div class="service">
+                <img src="{% static 'imgs/inventario.webp' %}" alt="inventario">
+                <h2>Inventario</h2>
+                <a href="{% url 'inventario' %}" class="button">Ver Más</a>
+            </div>
+            <div class="service">
+                <img src="{% static 'imgs/cita.jpg' %}" alt="citas">
+                <h2>Citas</h2>
+                <a href="{% url 'citas' %}" class="button">Ver Más</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Botón con icono de flecha y espaciado para colocarlo más abajo -->
+    <a href="{% url 'index' %}" class="bottom-button">
+        <i class="fas fa-arrow-left"></i> Regresar
+    </a>
+</body>
+</html>

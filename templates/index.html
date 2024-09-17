@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMEC</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    
+    <header class="header" id="header">
+        
+        <nav class="nav container">
+            <a href="#" class="navL">
+                <img src="{% static 'imgs/promec.png' %}" alt="" class="navL-img">
+                <style>
+                    .navL-img {
+                        width: 200px; /* Ajusta el tamaño según necesites */
+                        height: auto; /* Mantiene la proporción de la imagen */
+                    }
+                </style>
+               
+            </a>
+
+            <div class="navM" id="nav-menu">
+
+                <ul class="navList">
+                    <li class="navItem">
+                        <a href="#home" class="navLink active-link">Inicio</a>
+                    </li>
+                    <li class="navItem">
+                        <a href="#about" class="navLink"> Quienes somos </a>
+                    </li>
+                    <li class="navItem">
+                        <a href="#product"class="navLink">Productos</a>
+                    </li>
+                    <li class="navItem">
+                        <a href="{% url 'contacto' %}" href="{% static 'css/contacto.css' %}" class="navLink">Contacto</a>
+                    <li class="navItem">
+                    <li>
+                        
+                    </li>
+                    <li class="navItem">
+                        {% if user.is_authenticated %}
+                            <p class="navLink" >Bienvenido, {{ user.username }}.</p>
+                            {% if user.is_superuser %}
+                                <li>
+                                    <a class="navLink" href="{% url 'modulacion' %}" >Modulos</a>
+                                </li>
+                            {% endif %}
+                            <a class="navLink-1" href="{% url 'salir' %}">Cerrar sesion</a>                           
+                        {% else %}
+                            <a href="{% url 'login' %}" href="{% static 'css/login.css' %}" class="navLink">inició sesión</a>
+                        {% endif %}
+                    </li>
+                    
+                </ul>
+
+                
+
+            </div>
+
+            <div class="navToggle" id="nav-toggle">
+                <i class="bx bx-grid-alt"></i>
+            </div>
+
+        </nav>
+
+    </header>
+    
+    
+
+    <main class="main">
+
+        <!--Home-->
+        <section class="home container" id="home">
+            <div class="swiper home-swiper">
+                <div class="swiper-wrapper">
+
+                    <section>
+                        <div class="homecont grid">
+
+                            <div class="homedata">
+                                <h1 class="homet">Bienvenidos a PROMEC S.A.S.</h1>
+                                <br><br>
+                                <h2>Ofertas Especiales</h2>
+                                <br>
+                                <p class="homedes"> 
+                                    La Empresa Promec S.A.S cuenta con ofertas especiales para los clientes, como envio gratuito en pedidos superiores a cierta cantidad, paquete de productos relacionados con difrentes tipos de metales o productos de metal, ofertas por tiempo limitado, descuentos para indutrias especificas que utilicen productos de metal y servicios de valor agregado gratuito o un costo reducido.
+                                </p>
+                                
+                                <div class="button-container">
+                                    <a href="{% url 'cita' %}" class="button">Adquirir Servicios</a>
+                                </div>
+                                <style>
+                                    .button-container {
+                                        display: flex;
+                                        justify-content: center; /* Centra el contenido horizontalmente */
+                                        margin-top: 20px; /* Ajusta el espacio superior si es necesario */
+                                        color: c31f1f
+                                    }
+                                </style>
+                            </div>
+                            <div class="homeg">
+                                <img src="{% static 'imgs/tejas.png' %}" class="homeimg" alt="">
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </section>
+        <br><br>
+
+        <!--Category-->
+<section class="section category">
+
+    <h2 class="stitle">Las mejores <br> Categorías</h2>
+
+    <div class="catcontainer container grid">
+
+        <div class="catdata card">
+            <img src="{% static 'imgs/est 1.png' %}" class="catimg" alt="">
+            <div class="card-content">
+                <h3 class="cattitle">Estantería hecha a base de metal</h3>
+                <p class="catdesc">Descubre la robustez y durabilidad de nuestras estanterías metálicas, ideales para todo tipo de almacenamiento.</p>
+               
+            </div>
+        </div>
+
+        <div class="catdata card">
+            <img src="{% static 'imgs/est 2.png' %}" class="catimg" alt="">
+            <div class="card-content">
+                <h3 class="cattitle">Estantería versátil y duradera</h3>
+                <p class="catdesc">Nuestra estantería versátil se adapta a tus necesidades y asegura una larga vida útil en cualquier entorno.</p>
+            
+            </div>
+        </div>
+
+        <div class="catdata card">
+            <img src="{% static 'imgs/est3.png' %}" class="catimg" alt="">
+            <div class="card-content">
+                <h3 class="cattitle">Estantería que maximiza el almacenamiento</h3>
+                <p class="catdesc">Maximiza tu espacio con nuestras estanterías diseñadas para ofrecer la máxima capacidad de almacenamiento.</p>
+              
+            </div>
+        </div>
+
+    </div>
+</section>
+<br><br><br>
+         <!--About-->
+         <section class="section about" id="about">
+            <div class="abcontainer container grid">
+                <img src="{% static 'imgs/promec.png' %}" class="aboutimg" alt="">
+                <div class="abdata">
+                    <h2 class="stitle abti">Nosotros <br> Somos</h2>
+                    <p class="abdes"> PROMEC S.A.S. Es una empresa líder en la industria de metales con una sólida reputación por su excelencia en la producción y distribución de una amplia gama de metales y aleaciones de alta calidad. Fundada en 2017, nuestra empresa ha evolucionado para convertirse en un referente en el sector de metales a nivel nacional e internacional.</p>
+                    <a href="#" class="button">Contactar </a>
+                </div>
+            </div>
+         </section>
+         <br><br><br><br><br>
+          <!--Product-->
+
+          <section class="section product" id="product">
+
+            <h2 class="stitle">Productos</h2>
+
+            <div class="pdcontainer container grid">
+
+                {% for producto in producto %}
+                <div class="pdcontent">
+                    <img src="{{ producto.imagen_producto.url }}" class="productimg" alt="">
+                    <h3 class="pdtitle">{{ producto.nombre_producto }}</h3>
+                    <span class="pdsub">{{ producto.descripcion }}</span>
+                    <button class="button pdbut">
+                        <i class="bx bx-cart-alt producticon"></i>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+
+          </section>
+          
+
+          <br><br><br>
+     <!--Discount-->
+          <section class="section discount">
+            
+            <div class="dscont container grid">
+
+                <div class="disdata">
+                    <h2 class="distitle">50% Descuento <br> Productos</h2>
+                    <a href="#" class="button">Vamos</a>
+                </div>
+    
+                <img src="{% static 'imgs/1.jpeg' %}" class="disimg" alt="">
+            </div>
+          </section>
+
+
+   <!-- Sección de Comentarios -->
+<section class="comentarios container">
+    <br> <br>
+    <span>Comentarios</span>
+    <h2>Opiniones de los clientes</h2>
+    <div class="comentarios_wrapper">
+        {% for calificacion in calificacion %}
+            <div class="comentarios_content">
+                <div class="comentarios_1">
+                    <p><strong>Contenido:</strong> {{ calificacion.contenido }}</p>
+                    <p><strong>Calificación:</strong> {{ calificacion.puntuacion }}/5</p>
+                    <p><strong>Usuario:</strong> {{ calificacion.usuario.username }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="comentarios_action">
+        {% if user.is_authenticated and not user.is_superuser %}
+            <a class="btn-comentario" href="{% url 'calificacion' user.id %}">Crear comentario</a>
+        {% else %}
+            <a class="btn-login" href="{% url 'login' %}">Inicie sesión para comentar</a>
+        {% endif %}
+    </div>
+</section>
+<br> <br>    
+
+<!-- Footer -->
+<footer class="footer section">
+    <div class="ftcontainer container grid">
+        <div class="ftcontent">
+            
+            <a href="#" class="footerL">
+                <h2>PROMEC</h2>
+            </a>
+            <p class="footerdescription">
+                Nuestra empresa se destaca por su compromiso con la excelencia en la producción y la satisfacción del cliente.
+            </p>
+            <div class="footersocial">
+                <a href="#" target="_blank" class="footersocial-link">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+                <a href="{% url 'modulacion' %}" target="_blank" class="footersocial-link">
+                    <i class="bx bxl-instagram-alt"></i>
+                </a>
+                <a href="#" target="_blank" class="footersocial-link">
+                    <i class="bx bxl-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="ftcontent">
+            <section id="contacto">
+                <h2>Contacto</h2>
+                <p>Estamos ubicados en:</p>
+                <p>Dirección: Calle Principal, Ciudad</p>
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Email: info@metalessa.com</p>
+            </section>
+        </div>
+        
+        <!-- Aquí se agrega el mapa -->
+        <div class="ftcontent">
+            <h2>Ubicación</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.1433033075186!2d-122.084!3d37.421999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb0c0cabc8bc1%3A0xaab4b5d8d1f4b8c7!2sGoogleplex!5e0!3m2!1sen!2sus!4v1618325554346!5m2!1sen!2sus" 
+                width="300" 
+                height="200" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</footer>

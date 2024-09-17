@@ -1,0 +1,32 @@
+        <!-- categorias.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Asegúrate de tener el archivo CSS en la carpeta estática -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Para usar Font Awesome -->
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">
+                <i class="fas fa-folder"></i>
+                <span class="nav-item">Categorías</span>
+            </a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Listado de Categorías</h1>
+        <ul>
+            {% for categoria in categorias %}
+                <li>{{ categoria.nombre }}</li>
+            {% empty %}
+                <li>No hay categorías disponibles.</li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

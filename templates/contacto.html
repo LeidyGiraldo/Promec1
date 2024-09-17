@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Botón pequeño de regresar, alineado a la parte inferior izquierda -->
+    <a href="{% url 'index' %}" class="back-button">
+        <i class="fas fa-arrow-left"></i> Regresar
+    </a>
+    
+    <header>
+        <h1>Contacto</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Información registro</h2>
+            <p>Puedes contactarnos de las siguientes maneras:</p>
+            <ul>
+                <li>Teléfono: <a href="tel:3007425689">3007425689</a></li>
+                <li>Correo electrónico: <a href="mailto:info@example.com">info@promec.com</a></li>
+                <li>Dirección: 123 Calle Principal, Ciudad</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Formulario de contacto</h2>
+            <form action="" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                
+                <!-- Botón con ícono de avión -->
+                <button type="submit" class="button">
+                    <i class="fas fa-paper-plane"></i> Enviar
+                </button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 PROMEC</p>
+    </footer>
+
+    <style>
+        /* Estilos para el botón de regresar alineado a la parte inferior izquierda */
+        .back-button {
+            display: inline-block;
+            font-size: 14px;
+            padding: 5px 10px;
+            background-color: #c31f1f; /* Color rojo */
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            position: absolute; /* Posición absoluta */
+            left: 20px; /* Alineado a la izquierda */
+            bottom: 20px; /* Alineado en la parte inferior */
+            transition: background-color 0.3s;
+        }
+
+        .back-button i {
+            margin-right: 5px;
+        }
+
+        .back-button:hover {
+            background-color: #cc0000; /* Rojo más oscuro al pasar el ratón */
+        }
+
+        /* Estilo para el botón de enviar */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button i {
+            margin-right: 5px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</body>
+</html>

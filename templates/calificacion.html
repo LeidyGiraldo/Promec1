@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+</head>
+<body>
+    
+    <header>
+        <h1>Contacto</h1>
+       
+    </header>
+    <main>
+        <section>
+            <h2>Formulario de contacto</h2>
+            <form action="" method="POST">
+                {% csrf_token %}             
+                <label for="correo">Puntuacion(1-5):</label>
+                <input type="number" id="puntuacion" name="puntuacion" min="1" max="5" required>
+
+                <label for="nombre">Contenido: </label>
+                <textarea id="contenido" name="contenido" rows="4"  required></textarea><br>
+                <input type="submit" value="Enviar" >
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 PROMEC</p>
+    </footer>
+</body>
+</html>

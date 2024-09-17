@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Citas</title>
+  <link rel="stylesheet" href="{% static 'css/produccion.css' %}" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="{% static 'imgs/promec.png' %}" alt="logo">
+          <span class="nav-item">Admin</span>
+        </a></li>
+      
+        <li>
+          <a href="#">
+            <i class="fas fa-file-alt"></i> <!-- Ícono de archivo/documento -->
+            <span class="nav-item">Reportes</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="{% url 'clientes' %}">
+            <i class="fas fa-users"></i> <!-- Ícono de grupo de usuarios -->
+            <span class="nav-item">Clientes</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="{% url 'calendario' %}">
+            <i class="fas fa-calendar-alt"></i> <!-- Cambiamos la clase a "fas fa-calendar-alt" para el ícono de calendario -->
+            <span class="nav-item">Calendario</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="{% url 'notifications' %}">
+            <i class="fas fa-bell"></i> <!-- Cambia la clase del ícono aquí -->
+            <span class="nav-item">Notificaciones</span> 
+          </a>
+        </li>
+        
+
+
+        
+
+        <li>
+          <br><br><br><br><br><br><br><br><br><br><br>
+          <a href="{% url 'modulacion' %}" class="logout">
+            <i class="fas fa-arrow-left"></i>
+            <span class="nav-item">Regresar</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <section class="main">
+
+
+      <div class="main-top">
+        <h1>CITAS</h1>
+        <div class="container">
+          <input type="text" placeholder="Buscar...">
+          <div class="buscar"><i class='bx bx-search' ></i></div>
+        </div>
+        <i class="fas fa-user-cog"></i>
+      </div>
+      
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <div class="adicionar">
+            <h1>Productos</h1>
+            <div>
+              <a class="add excel" href="{% url 'reporte_citas' %}"><i class="boton-1 far fa-file-excel"></i></a>
+            </div>
+          </div>
+
+
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <td>numero</td>
+                <td>Nombre</td>
+                <td>Correo electronico</td>
+                <td>telefono</td>
+                <td>Fecha</td>
+                <td>Hora</td>
+                <td>Servicio</td>
+                <th>     </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for citas in citas %}
+              <tr>
+                <td>{{ citas.id }}</td>
+                <td>{{ citas.nombre_persona }}</td>
+                <td>{{ citas.email }}</td>
+                <td>{{ citas.telefono }}</td>
+                <td>{{ citas.fecha_cita }}</td>
+                <td>{{ citas.hora_cita }}</td>
+                <td>{{ citas.servicio.nombre_servicio }}</td>
+                <td class="options">
+                <a class="add" href="{% url 'eliminar_cita' citas.id %}"><button><i class='bx bx-trash' ></i></button></a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="paginacion">
+            <a href=""><<</a>
+            <a href="">1</a>
+            <a href="">2</a>
+            <a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <a href="">6</a>
+            <a href="">>></a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</body>
+</html>
