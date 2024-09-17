@@ -1,0 +1,353 @@
+/* Importando fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 3.5rem; /* Ajuste para el header fijo */
+}
+
+/* Estilo del Header */
+.header {
+    background-color: #c31f1f;
+    color: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.header.scrolled {
+    background-color: #0f0f0f;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navL {
+    display: flex;
+    align-items: center;
+}
+
+.navL-img {
+    width: 150px;
+    height: auto;
+}
+
+.navM {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navList {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navLink {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navLink:hover {
+    color: #e67e22;
+}
+
+.navLink-1 {
+    background-color: #e67e22;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.navLink-1:hover {
+    background-color: #d35400;
+}
+
+/* Estilos para el toggle del menú en móviles */
+.navToggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .navList {
+        position: fixed;
+        top: -100%;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1a1a1a;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: top 0.3s;
+    }
+
+    .navList.active {
+        top: 0;
+    }
+
+    .navToggle {
+        display: block;
+    }
+
+    .navClose {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    .navLink {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footerL h2 {
+    color: #e67e22;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footersocial {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footersocial-link {
+    color: #ffffff;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.footersocial-link:hover {
+    color: #e67e22;
+}
+
+/* Otros estilos para botones, secciones, etc. */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.button {
+    background-color: #c31f1f;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #a71b1b;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estilos generales del main */
+.main {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de la sección home */
+.home {
+    padding: 100px 0;
+    background: #ffffff; /* Fondo blanco para un diseño limpio y moderno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homecont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.homedata {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.homet {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: #c31f1f; /* Azul oscuro para un contraste profesional */
+    margin-bottom: 15px;
+}
+
+.homedes {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: #c31f1f; /* Azul vibrante para el botón */
+    color: #fff;
+    padding: 14px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+.button:hover {
+    background-color: #a71b1b; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-4px); /* Efecto de elevación más marcado */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más prominente al pasar el ratón */
+}
+
+.homeg {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.homeimg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bordes redondeados más marcados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave */
+}
+
+/* Container for category section */
+.section.category {
+    padding: 50px 0;
+    background-color: #f9f9f9; /* Fondo claro para resaltar las tarjetas */
+}
+
+.catcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.catdata {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.catdata:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.catimg {
+    width: 100%;
+    height: 180px; /* Ajusta la altura de la imagen */
+    object-fit: cover; /* Mantiene la proporción de la imagen sin distorsionarla */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.cattitle {
+    font-size: 1.4em;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+}
