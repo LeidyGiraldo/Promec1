@@ -26,7 +26,17 @@ SECRET_KEY = 'django-insecure-98slg(i+&+&r-ygjtwo&8=oek+lm__*6j2$r2gnoj6@)7w(_mc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+
+CSRF_TRUSTED_ORIGINS = [
+    
+    'https://promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net',
+]
+
+CSRF_COOKIE_DOMAIN = 'https://promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net'
+
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition
@@ -78,7 +88,12 @@ WSGI_APPLICATION = 'promec.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = db.MYSQL
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
+    }
+}
 
 
 # Password validation
@@ -120,6 +135,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+STATIC_ROOT = BASE_DIR / 'staticfilesf'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
