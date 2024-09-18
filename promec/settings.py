@@ -24,19 +24,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-98slg(i+&+&r-ygjtwo&8=oek+lm__*6j2$r2gnoj6@)7w(_mc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [ 'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net/',
+    'localhost',
+    '127.0.0.1',]
 
+# Allow CSRF 
 
 CSRF_TRUSTED_ORIGINS = [
-    
-    'https://promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net',
+    'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net',
 ]
 
-CSRF_COOKIE_DOMAIN = 'https://promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net'
+CSRF_COOKIE_DOMAIN = 'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net'
+
+SESSION_COOKIE_DOMAIN = 'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net'
 
 CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
 
 
 # Application definition
