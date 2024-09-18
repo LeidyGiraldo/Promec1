@@ -40,7 +40,7 @@ urlpatterns = [
     path('productos/', views.productos_list, name='productos_list'),
     path('categorias/', categorias_view, name='categorias'),
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
