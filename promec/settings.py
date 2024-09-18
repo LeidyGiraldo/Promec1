@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-98slg(i+&+&r-ygjtwo&8=oek+lm__*6j2$r2gnoj6@)7w(_mc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ 'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net/',
-    'localhost',
-    '127.0.0.1',]
+ALLOWED_HOSTS = ['*']
 
 # Allow CSRF 
 
