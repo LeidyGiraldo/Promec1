@@ -31,16 +31,16 @@ ALLOWED_HOSTS = ['*']
 # Allow CSRF 
 
 CSRF_TRUSTED_ORIGINS = [
-    'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net',
+    'https://promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net',
 ]
 
 CSRF_COOKIE_DOMAIN = 'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net'
 
 SESSION_COOKIE_DOMAIN = 'promec-main-cecdfdcffbb4gydz.eastus-01.azurewebsites.net'
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 
 
 # Application definition
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
